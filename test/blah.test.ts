@@ -1,7 +1,25 @@
-import { sum } from '../src';
+import {Crudio, DBField, Resource} from "../src/index"
 
-describe('blah', () => {
+describe('sample', () => {
   it('works', () => {
-    expect(sum(1, 1)).toEqual(2);
+    
+      @Resource("test")
+      class test{
+      
+        @DBField("lol")
+        lol: string;
+        kek: number;
+      
+        constructor() {
+          this.lol = "kek";
+          this.kek = 0;
+        }
+      
+      }
+    
+      let t = new test();
+      expect(t.lol).toBe("kek");
+      let l = new Crudio([t]);
+      expect(l).toBeDefined();
   });
 });

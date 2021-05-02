@@ -54,6 +54,8 @@
   },
   "dependencies": {
     "@tsed/logger": "^5.13.2",
+    "@types/mongodb": "^3.6.12",
+    "mongodb": "^3.6.6",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"
   }

@@ -2,7 +2,7 @@ import {Crudio, DBField, Resource} from "../src/index";
 import { describe, expect, it } from "@jest/globals";
 import * as joi from "joi";
 import 'reflect-metadata';
-import {getValidationErrors} from "../src/Resource";
+// import {getValidationErrors} from "../src/Resource";
 
 @Resource("test")
 class TestResource {

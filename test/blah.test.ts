@@ -1,17 +1,20 @@
 import {Crudio, DBField, Resource} from "../src/index";
 import { describe, expect, it } from "@jest/globals";
+import * as joi from 'joi';
+import { BaseResource } from "../src/Resource";
 
 describe('sample', () => {
   it('works', () => {
 
       @Resource("test")
-      class test{
+      class test extends BaseResource {
 
-        @DBField("lol")
+        @DBField(joi.number().required())
         lol: string;
         kek: number;
 
         constructor() {
+          super();
           this.lol = "kek";
           this.kek = 0;
         }

@@ -1,4 +1,4 @@
 import Crudio from "./Crudio";
-import Resource, {DBField} from "./Resource";
+import Resource, { DBField } from "./Resource";
 
-export {Resource, Crudio, DBField};
+export { Resource, Crudio, DBField };

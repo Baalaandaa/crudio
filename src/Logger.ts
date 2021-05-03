@@ -1,4 +1,4 @@
-import {Logger} from "@tsed/logger";
+import { Logger } from "@tsed/logger";
 
 const loggerGenerator = (name: string) => {
   let logger = new Logger(name);
@@ -7,17 +7,17 @@ const loggerGenerator = (name: string) => {
       type: "stdout",
       levels: ["debug", "info", "trace"],
       layout: {
-        type: "colored"
-      }
+        type: "colored",
+      },
     })
     .set("error-log", {
       type: "stderr",
       levels: ["fatal", "error", "warn"],
       layout: {
-        type: "colored"
-      }
+        type: "colored",
+      },
     });
   return logger;
-}
+};
 
 export default loggerGenerator;

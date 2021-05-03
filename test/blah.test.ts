@@ -1,29 +1,31 @@
 import {Crudio, DBField, Resource} from "../src/index";
 import { describe, expect, it } from "@jest/globals";
-import * as joi from 'joi';
-import { BaseResource } from "../src/Resource";
+import * as joi from "joi";
+import 'reflect-metadata';
+import {getValidationErrors} from "../src/Resource";
 
-describe('sample', () => {
-  it('works', () => {
+@Resource("test")
+class TestResource {
+  @DBField(joi.string().min(3).required())
+  lol: any;
+  @DBField(joi.number().required())
+  kek: number;
+  
+  constructor() {
+    this.lol = "kek";
+    this.kek = 0;
+  }
+}
 
-      @Resource("test")
-      class test extends BaseResource {
 
-        @DBField(joi.number().required())
-        lol: string;
-        kek: number;
-
-        constructor() {
-          super();
-          this.lol = "kek";
-          this.kek = 0;
-        }
-
-      }
-
-      let t = new test();
-      expect(t.lol).toBe("kek");
-      let l = new Crudio([t]);
-      expect(l).toBeDefined();
+describe("sample", () => {
+  it("works", () => {
+    //@ts-ignore
+    
+    let t = new TestResource();
+    // console.log(getValidationErrors(t));
+    expect(t.lol).toBe("kek");
+    let l = new Crudio([t]);
+    expect(l).toBeDefined();
   });
 });
